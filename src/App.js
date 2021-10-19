@@ -10,18 +10,18 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import TextField from "@material-ui/core/TextField";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 
-const useStyles =
-  makeStyles({
-    root: {
-      background: "linear-gradient(45deg, #FE6B8B, #FF8E53)",
-      border: 0,
-      borderRadius: 15,
-      color: "white",
-      padding: "0 30px",
-    },
-  });
+const useStyles = makeStyles({
+  root: {
+    background: "linear-gradient(45deg, #FE6B8B, #FF8E53)",
+    border: 0,
+    marginBottom: 15,
+    borderRadius: 15,
+    color: "white",
+    padding: "5px 30px",
+  },
+});
 
 function CheckboxExample() {
   const [checked, setChecked] = useState(true);
@@ -50,24 +50,26 @@ function ButtonStyled() {
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <ButtonStyled />
-        <TextField
-          variant='filled'
-          color='secondary'
-          type='email'
-          label='The Time'
-          placeholder='testing@test.com'
-        />
-        <CheckboxExample />
-        <ButtonGroup variant='contained' color='primary'>
-          <Button startIcon={<SaveIcon />}>Save</Button>
-          <Button startIcon={<DeleteIcon />}>Discard</Button>
-        </ButtonGroup>
-        <img src={logo} className='App-logo' alt='logo' />
-      </header>
-    </div>
+    <ThemeProvider>
+      <div className='App'>
+        <header className='App-header'>
+          <ButtonStyled />
+          <TextField
+            variant='filled'
+            color='secondary'
+            type='email'
+            label='The Time'
+            placeholder='testing@test.com'
+          />
+          <CheckboxExample />
+          <ButtonGroup variant='contained' color='primary'>
+            <Button startIcon={<SaveIcon />}>Save</Button>
+            <Button startIcon={<DeleteIcon />}>Discard</Button>
+          </ButtonGroup>
+          <img src={logo} className='App-logo' alt='logo' />
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
