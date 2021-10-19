@@ -10,7 +10,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import TextField from "@material-ui/core/TextField";
 
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import {orange} from '@material-ui/core/colors'
 
 const useStyles = makeStyles({
   root: {
@@ -22,6 +23,14 @@ const useStyles = makeStyles({
     padding: "5px 30px",
   },
 });
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: orange[500],
+    }
+  }
+})
 
 function CheckboxExample() {
   const [checked, setChecked] = useState(true);
@@ -50,7 +59,7 @@ function ButtonStyled() {
 
 function App() {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={theme}>
       <div className='App'>
         <header className='App-header'>
           <ButtonStyled />
